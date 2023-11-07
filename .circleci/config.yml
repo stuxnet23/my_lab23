@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run Trivy Scan
           command: |
-           sudo curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+           sudo curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh |sudo sh -s -- -b /usr/local/bin
             trivy  dvwa
 workflows:
   version: 2

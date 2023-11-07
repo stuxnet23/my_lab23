@@ -15,7 +15,7 @@ jobs:
           name: Run Trivy Scan
           command: |
             curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-            trivy --exit-code 0 dvwa
+            trivy  dvwa
 workflows:
   version: 2
   build-deploy:

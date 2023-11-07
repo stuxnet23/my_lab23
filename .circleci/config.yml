@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build DVWA Docker Image
+          name: Build dockerfile Docker Image
           command: |
             docker build -t dvwa .
       - setup_remote_docker:

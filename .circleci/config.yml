@@ -24,7 +24,7 @@ jobs:
          name: Log into docker and publish file
          command: | 
            docker login -u $user -p $password
-           docker image dockerfile stuxnet23/dockerfile           
+           docker tag dockerfile stuxnet23/dockerfile           
            docker push stuxnet23/dockerfile
 
 workflows:

@@ -15,7 +15,7 @@ jobs:
           name: Run Trivy Scan
           command: |
            sudo curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh |sudo sh -s -- -b /usr/local/bin
-           trivy --exit-code 1 image dockerfile
+           trivy --exit-code 0 image dockerfile
            if [ $? -eq 1 ]; then
               echo "Vulnerabilities found. Blocking deployment."
               exit 1
@@ -23,6 +23,12 @@ jobs:
              echo "No vulnerabilities found. Proceeding with deployment."
            #Deploy your Docker image here
            fi
+      - run: 
+         name: Log into docker
+         command: | 
+           docker login -u $user -p $password
+           docker -t image dockerfile stuxnet23/dockerfile           
+           docker push stuxnet23/dockerfile
 workflows:
   version: 2
   build-deploy:

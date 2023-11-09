@@ -27,7 +27,7 @@ jobs:
          name: Log into docker
          command: | 
            docker login -u $user -p $password
-           docker -t dockerfile stuxnet23/dockerfile           
+           docker tag dockerfile stuxnet23/dockerfile           
            docker push stuxnet23/dockerfile
 workflows:
   version: 2
